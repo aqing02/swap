@@ -12,7 +12,7 @@ export default function SlippageSection() {
       <Text bold fontSize="12px" color="secondary">
         {t('Slippage Tolerance')}
       </Text>
-      <Text bold color="primary">
+      <Text bold color="primary_old">
         {allowedSlippage / 100}%
       </Text>
     </RowBetween>

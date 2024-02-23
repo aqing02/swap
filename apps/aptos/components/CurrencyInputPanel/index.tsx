@@ -168,7 +168,7 @@ export const CurrencyInputPanel = ({
                   }}
                   scale="xs"
                   mr="5px"
-                  variant={isAtCurrentPercent ? 'primary' : 'secondary'}
+                  variant={isAtCurrentPercent ? 'primary_old' : 'secondary'}
                   style={{ textTransform: 'uppercase' }}
                 >
                   {percent}%

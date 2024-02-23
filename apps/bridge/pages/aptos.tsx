@@ -32,29 +32,31 @@ const AptosBridge = () => {
   }, [])
 
   return (
-    <Page>
-      <Script crossOrigin="anonymous" src={LAYER_ZERO_JS.src} integrity={LAYER_ZERO_JS.integrity} />
-      <link rel="stylesheet" href="https://unpkg.com/@layerzerolabs/aptos-bridge-widget@latest/element.css" />
-      {show && (
-        <Box width={['100%', null, '420px']} m="auto">
-          <Box mt="24px" display={['none', null, 'block']}>
-            <AptosBridgeMessage />
-          </Box>
-          <Flex flexDirection="column" bg="backgroundAlt" borderRadius={[0, null, 24]} alignItems="center">
-            <Box display={['block', null, 'none']}>
-              <AptosBridgeMessage />
-            </Box>
-            <LayerZeroWidget theme={theme} />
-            <Box display={['block', null, 'none']}>
-              <AptosBridgeFooter />
-            </Box>
-          </Flex>
-          <Box display={['none', null, 'block']}>
-            <AptosBridgeFooter />
-          </Box>
-        </Box>
-      )}
-    </Page>
+    <>
+    </>
+    // <Page>
+    //   <Script crossOrigin="anonymous" src={LAYER_ZERO_JS.src} integrity={LAYER_ZERO_JS.integrity} />
+    //   <link rel="stylesheet" href="https://unpkg.com/@layerzerolabs/aptos-bridge-widget@latest/element.css" />
+    //   {show && (
+    //     <Box width={['100%', null, '420px']} m="auto">
+    //       <Box mt="24px" display={['none', null, 'block']}>
+    //         <AptosBridgeMessage />
+    //       </Box>
+    //       <Flex flexDirection="column" bg="backgroundAlt" borderRadius={[0, null, 24]} alignItems="center">
+    //         <Box display={['block', null, 'none']}>
+    //           <AptosBridgeMessage />
+    //         </Box>
+    //         <LayerZeroWidget theme={theme} />
+    //         <Box display={['block', null, 'none']}>
+    //           <AptosBridgeFooter />
+    //         </Box>
+    //       </Flex>
+    //       <Box display={['none', null, 'block']}>
+    //         <AptosBridgeFooter />
+    //       </Box>
+    //     </Box>
+    //   )}
+    // </Page>
   )
 }
 

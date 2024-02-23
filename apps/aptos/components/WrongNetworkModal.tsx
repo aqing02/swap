@@ -32,7 +32,7 @@ export const WrongNetworkModal: React.FC = () => {
         >
           <Button width="100%" variant="secondary">
             {t('Learn How')}
-            <HelpIcon color="primary" ml="6px" />
+            <HelpIcon color="primary_old" ml="6px" />
           </Button>
         </StyledLink>
         <Button mt="24px" onClick={() => disconnect()}>

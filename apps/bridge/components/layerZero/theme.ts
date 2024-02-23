@@ -60,7 +60,7 @@ export const lightTheme = {
   palette: {
     mode: 'light',
     primary: {
-      main: lightColors.primary,
+      main: lightColors.primary_old,
       contrastText: lightColors.invertedContrast,
     },
     secondary: {

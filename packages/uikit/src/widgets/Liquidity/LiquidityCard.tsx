@@ -8,7 +8,7 @@ type LiquidityCardProps = AtomBoxProps;
 
 export const CardWrapper = styled(Card)`
   border-radius: 24px;
-  max-width: 436px;
+  max-width: 500px;
   width: 100%;
   z-index: 1;
 `;

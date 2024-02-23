@@ -24,6 +24,7 @@ storybook-static
 # misc
 .DS_Store
 .eslintcache
+.history
 
 # local env files
 .env.local

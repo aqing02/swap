@@ -18,7 +18,7 @@ export const scaleVariants = {
 
 export const styleVariants = {
   [variants.PRIMARY]: {
-    backgroundColor: "primary",
+    backgroundColor: "primary_btn",
     color: "invertedContrast",
   },
   [variants.SECONDARY]: {
@@ -57,5 +57,5 @@ export const styleVariants = {
     backgroundColor: "input",
     color: "textSubtle",
     boxShadow: "none",
-  },
+  }
 };

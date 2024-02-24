@@ -180,55 +180,56 @@
 // }
 export const baseColors = {
   white: 'white',
-  failure: '#ffa500', // 更改为红色
-  failure33: '#ffa50033', // 更改为带透明度的红色
-  primary: '#ffa500', // 更改为红色
-  primary_btn: 'rgba(255,162,7, .2)', // 更改为带透明度的红色
-  primary_old: '#00FF00', // 更改为绿色
-  primary0f: '#00FF000f', // 更改为带透明度的绿色
-  primary3D: '#00FF003D', // 更改为带透明度的绿色
-  primaryBright: '#FFFF00', // 更改为黄色
-  primaryDark: '#0000FF', // 更改为蓝色
-  success: '#00FF00', // 更改为绿色
-  success19: '#00FF0019', // 更改为带透明度的绿色
-  warning: '#FFA500', // 更改为橙色
-  warning2D: '#FFA5002D', // 更改为带透明度的橙色
-  warning33: '#FFA50033', // 更改为带透明度的橙色
+  failure: '#ffa500', 
+  failure33: '#ffa50033', 
+  primary: '#ffa500', 
+  primary_btn: 'rgba(255,162,7, .2)', 
+  primary_old: '#00FF00', 
+  primary0f: '#00FF000f', 
+  primary3D: '#00FF003D', 
+  primaryBright: '#FFFF00', 
+  primaryDark: '#0000FF',
+  success: '#00FF00', 
+  success19: '#00FF0019', 
+  warning: '#FFA500', 
+  warning2D: '#FFA5002D', 
+  warning33: '#FFA50033',
 }
 
 export const additionalColors = {
-  binance: '#FFFF00', // 更改为黄色
-  overlay: '#800080', // 更改为紫色
-  gold: '#FFD700', // 更改为金色
-  silver: '#C0C0C0', // 更改为银色
-  bronze: '#CD7F32', // 更改为青铜色
+  binance: '#FFFF00', 
+  overlay: '#800080', 
+  gold: '#FFD700', 
+  silver: '#C0C0C0', 
+  bronze: '#CD7F32', 
 }
 
 export const lightColors = {
   ...baseColors,
   ...additionalColors,
-  secondary: '#FFA500', // 更改为橙色
-  secondary80: '#FFA50080', // 更改为带透明度的橙色
-  background: '#FFFFFF', // 更改为白色
-  backgroundDisabled: '#D3D3D3', // 更改为浅灰色
-  backgroundAlt: '#FFFFE0', // 更改为浅黄色
-  backgroundAlt2: 'rgba(255, 255, 224, 0.7)', // 更改为带透明度的浅黄色
-  cardBorder: '#D3D3D3', // 更改为浅灰色
-  contrast: '#000000', // 更改为黑色
-  dropdown: '#F5F5DC', // 更改为米黄色
-  dropdownDeep: '#FFFFE0', // 更改为深浅黄色
-  invertedContrast: '#FFA500', // 更改为橙色
-  input: '#F0FFF0', // 更改为薄荷绿
-  inputSecondary: '#D3D3D3', // 更改为浅灰色
-  tertiary: '#F5F5DC', // 更改为米黄色
-  text: '#280D5F', // 更改为紫色
-  text99: '#280D5F99', // 更改为带透明度的紫色
-  textDisabled: '#A9A9A9', // 更改为深灰色
-  textSubtle: '#9370DB', // 更改为紫罗兰色
-  disabled: '#D3D3D3', // 更改为浅灰色
-  // gradientBubblegum: 'linear-gradient(139.73deg, #FF1493 0%, #FF69B4 100%)', // 更改为线性渐变的粉红色
-  gradientBubblegum: '#f4f5f6', // 更改为线性渐变的粉红色
-  gradientInverseBubblegum: '#f4f5f6', // 更改为线性渐变的粉红色
+  secondary: '#FFA500', 
+  secondary80: '#FFA50080',
+  background: '#FFFFFF', 
+  backgroundDisabled: '#D3D3D3',
+  backgroundAlt: '#FFFFE0', 
+  backgroundAlt2: 'rgba(255, 255, 224, 0.7)',
+  cardBorder: '#D3D3D3', 
+  contrast: '#000000', 
+  dropdown: '#F5F5DC', 
+  dropdownDeep: '#FFFFE0', 
+  invertedContrast: '#FFA500', 
+  input: '#F0FFF0', 
+  inputSecondary: '#D3D3D3', 
+  tertiary: '#F5F5DC', 
+  text: '#280D5F', 
+  text99: '#280D5F99', 
+  textDisabled: '#A9A9A9', 
+  textSubtle: '#ffa500',
+  disabled: '#D3D3D3', 
+  // gradientBubblegum: 'linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)',
+  gradientBubblegum: 'linear-gradient(139.73deg, rgba(35, 153, 251,.45) 0%, rgba(62, 25, 128,.45) 100%)',
+  // gradientBubblegum: '#f4f5f6', 
+  gradientInverseBubblegum: '#f4f5f6', 
   gradientCardHeader: 'linear-gradient(166.77deg, #3B4155 0%, #3A3045 100%)',
   gradientBlue: 'linear-gradient(180deg, #00707F 0%, #19778C 100%)',
   gradientViolet: 'linear-gradient(180deg, #6C4999 0%, #6D4DB2 100%)',
@@ -239,8 +240,8 @@ export const lightColors = {
 export const darkColors = {
   ...baseColors,
     ...additionalColors,
-    secondary: '#9A6AFF',
-    secondary80: '#9A6AFF80',
+    secondary: '#ffa500',
+    secondary80: '#ffa50080',
     background: '#08060B',
     backgroundDisabled: '#3c3742',
     backgroundAlt: '#27262c',

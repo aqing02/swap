@@ -45,44 +45,7 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
       {
         label: t('Liquidity'),
         href: '/liquidity',
-      },
-      {
-        label: t('Bridge'),
-        href: 'https://bridge.pancakeswap.finance/aptos',
-        type: DropdownMenuItemType.EXTERNAL_LINK,
-      },
-    ],
-  },
-  {
-    label: t('Earn'),
-    href: '/farms',
-    icon: EarnIcon,
-    fillIcon: EarnFillIcon,
-    image: '/images/decorations/pe2.png',
-    items: [
-      {
-        label: t('Farms'),
-        href: '/farms',
-      },
-      {
-        label: t('Pools'),
-        href: '/pools',
-      },
-    ],
-  },
-  {
-    label: '',
-    href: '/ifo',
-    icon: MoreIcon,
-    hideSubNav: true,
-    disabled: true,
-    items: [
-      {
-        label: t('IFO'),
-        href: '/ifo',
-        disabled: true,
-        status: { text: t('Soon'), color: 'warning' },
-      },
+      }
     ],
   },
 ]
@@ -129,7 +92,7 @@ export const Menu = ({ children }: { children: ReactNode }) => {
   }, [setTheme, isDark])
 
   const getFooterLinks = useMemo(() => {
-    return footerLinks(t)
+    return []
   }, [t])
 
   return (

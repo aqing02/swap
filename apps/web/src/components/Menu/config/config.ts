@@ -79,6 +79,14 @@ const config: (
         // },
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
+    {
+      label: t("排行榜"),
+      icon: NftIcon,
+      fillIcon: NftFillIcon,
+      href: '/top',
+      showItemsOnMobile: false,
+      items: []
+    }
     // {
     //   label: t('Earn'),
     //   href: '/farms',

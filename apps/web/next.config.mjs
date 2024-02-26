@@ -108,6 +108,11 @@ const config = {
   async redirects() {
     return [
       {
+        source: '/',
+        destination: '/swap',
+        permanent: true, // 或者设置为 false，如果这是一个临时重定向
+      },
+      {
         source: '/send',
         destination: '/swap',
         permanent: true,

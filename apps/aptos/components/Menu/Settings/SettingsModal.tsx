@@ -64,7 +64,7 @@ const SlippageSetting = () => {
     slippageError = SlippageError.InvalidInput
   } else if (slippageInputIsValid && userSlippageTolerance < 50) {
     slippageError = SlippageError.RiskyLow
-  } else if (slippageInputIsValid && userSlippageTolerance > 500) {
+  } else if (slippageInputIsValid && userSlippageTolerance > 1000) {
     slippageError = SlippageError.RiskyHigh
   } else {
     slippageError = undefined
@@ -76,7 +76,7 @@ const SlippageSetting = () => {
 
       try {
         const valueAsIntFromRoundedFloat = Number.parseInt((Number.parseFloat(value) * 100).toString())
-        if (!Number.isNaN(valueAsIntFromRoundedFloat) && valueAsIntFromRoundedFloat < 5000) {
+        if (!Number.isNaN(valueAsIntFromRoundedFloat) && valueAsIntFromRoundedFloat < 10000) {
           setUserSlippageTolerance(valueAsIntFromRoundedFloat)
         }
       } catch (error) {

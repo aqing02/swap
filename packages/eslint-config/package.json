@@ -1,7 +1,7 @@
 {
   "name": "@pancakeswap/eslint-config-pancake",
   "version": "1.2.0",
-  "description": "Eslint config for TurstSwap",
+  "description": "Eslint config for TurtSwap",
   "main": "lib/index.js",
   "files": [
     "lib"

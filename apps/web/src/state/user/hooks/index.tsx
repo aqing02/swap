@@ -119,7 +119,7 @@ export function useExchangeChartViewManager() {
 
 export function useZapModeManager() {
   const dispatch = useAppDispatch()
-  const zapEnabled = useSelector<AppState, AppState['user']['userZapDisabled']>((state) => !state.user.userZapDisabled)
+  // const zapEnabled = useSelector<AppState, AppState['user']['userZapDisabled']>((state) => !state.user.userZapDisabled)
 
   const setZapEnable = useCallback(
     (enable: boolean) => {
@@ -128,7 +128,7 @@ export function useZapModeManager() {
     [dispatch],
   )
 
-  return [zapEnabled, setZapEnable] as const
+  return [false, setZapEnable] as const
 }
 
 export function useSubgraphHealthIndicatorManager() {

@@ -65,7 +65,7 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
   return (
     <Page>
       <Heading scale="lg" mb="16px" id="info-overview-title">
-        {t('TurstSwap Info & Analytics')}
+        {t('TurtSwap Info & Analytics')}
       </Heading>
       <ChartCardsContainer>
         <Card>

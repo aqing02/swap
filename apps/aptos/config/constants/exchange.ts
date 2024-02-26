@@ -10,7 +10,7 @@ export const BIG_INT_20 = JSBI.BigInt(20)
 export const MIN_APT: JSBI = JSBI.multiply(JSBI.exponentiate(BIG_INT_TEN, JSBI.BigInt(6)), JSBI.BigInt(2)) // .02 APT
 
 // default allowed slippage, in bips
-export const INITIAL_ALLOWED_SLIPPAGE = 50
+export const INITIAL_ALLOWED_SLIPPAGE = 100
 // 20 minutes, denominated in seconds
 export const DEFAULT_DEADLINE_FROM_NOW = 60 * 20
 

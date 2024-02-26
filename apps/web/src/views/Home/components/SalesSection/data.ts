@@ -21,13 +21,14 @@ export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
       { src: 'BNB', alt: t('BNB token') },
       { src: 'BTC', alt: t('BTC token') },
       { src: 'CAKE', alt: t('CAKE token') },
+      { src: 'TURT', alt: t('TURT token')}
     ],
   },
 })
 
 export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
   headingText: t('Earn passive income with crypto.'),
-  bodyText: t('TurstSwap makes it easy to make your crypto work for you.'),
+  bodyText: t('TurtSwap makes it easy to make your crypto work for you.'),
   reverse: true,
   primaryButton: {
     to: '/farms',
@@ -52,7 +53,7 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
 export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
   headingText: t('CAKE makes our world go round.'),
   bodyText: t(
-    'CAKE token is at the heart of the TurstSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
+    'CAKE token is at the heart of the TurtSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
   ),
   reverse: false,
   primaryButton: {

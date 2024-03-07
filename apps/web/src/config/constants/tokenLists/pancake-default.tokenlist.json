@@ -42,14 +42,6 @@
       "chainId": 97,
       "decimals": 18,
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/bnb.png"
-    },
-    {
-      "name": "TurtKing",
-      "symbol": "TurtKing",
-      "address": "0xea28c486303aeea46729e79c504cb1d32eb5d808",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": "https://turtswap.biz/images/turtking.jpg"
     }
   ]
 }

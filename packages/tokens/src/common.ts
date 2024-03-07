@@ -2,18 +2,18 @@ import { ChainId, ERC20Token } from '@pancakeswap/sdk'
 
 export const CAKE_MAINNET = new ERC20Token(
   ChainId.BSC,
-  '0xbdf7029f1b6b9ada35eda21d3cc7722fb8f8b2a9',
+  '0xecc119f69736d088e74dbd485ed2f34f8227d508',
   18,
-  'TURT',
+  'TURC',
   'TurtSwap Token',
   'https://turtswap.biz',
 )
 
 export const CAKE_TESTNET = new ERC20Token(
   ChainId.BSC_TESTNET,
-  '0xbdf7029f1b6b9ada35eda21d3cc7722fb8f8b2a9',
+  '0xecc119f69736d088e74dbd485ed2f34f8227d508',
   18,
-  'TURT',
+  'TURC',
   'TurtSwap Token',
   'https://turtswap.biz',
 )

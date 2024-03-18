@@ -80,10 +80,10 @@ const config: (
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
     {
-      label: t("排行榜"),
+      label: t("NFT"),
       icon: NftIcon,
       fillIcon: NftFillIcon,
-      href: '/top',
+      href: 'https://turtfi.netlify.app/',
       showItemsOnMobile: false,
       items: []
     }

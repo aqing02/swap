@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useProfile } from 'state/profile/hooks'
 import { Flex, Box, useMatchBreakpoints } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 import { useTradingCompetitionContractEaster } from 'hooks/useContract'
@@ -25,11 +24,8 @@ import BattleCta from './components/BattleCta'
 import EasterBattleBanner from './easter/components/BattleBanner/EasterBattleBanner'
 import EasterPrizesInfo from './easter/components/PrizesInfo/EasterPrizesInfo'
 import EasterYourScore from './easter/components/YourScore/EasterYourScore'
-import EasterCakerBunny from './pngs/easter-cakers.png'
-import { useTeamInformation } from './useTeamInformation'
 import { useRegistrationClaimStatus } from './useRegistrationClaimStatus'
 import Footer from './Footer'
-import TeamRanksSection from './components/TeamRanksSection'
 import PrizesInfoSection from './components/PrizesInfoSection'
 
 const CompetitionPage = styled.div`
@@ -52,7 +48,6 @@ const BannerFlex = styled(Flex)`
 const EasterCompetition = () => {
   const { account, chainId } = useActiveWeb3React()
   const { isMobile } = useMatchBreakpoints()
-  const { profile, isLoading: isProfileLoading } = useProfile()
   const { isDark } = useTheme()
   const tradingCompetitionContract = useTradingCompetitionContractEaster(false)
   const [currentPhase, setCurrentPhase] = useState(CompetitionPhases.OVER)
@@ -74,12 +69,6 @@ const EasterCompetition = () => {
     next_rank: 0,
   })
 
-  const {
-    globalLeaderboardInformation,
-    team1LeaderboardInformation,
-    team2LeaderboardInformation,
-    team3LeaderboardInformation,
-  } = useTeamInformation(1)
 
   const isCompetitionLive = currentPhase.state === LIVE
   const hasCompetitionEnded =
@@ -146,7 +135,7 @@ const EasterCompetition = () => {
     }
   }, [account, userTradingInformation])
 
-  const isLoading = isProfileLoading || userTradingInformation.isLoading
+  const isLoading = userTradingInformation.isLoading
 
   // Don't hide when loading. Hide if the account is connected && the user hasn't registered && the competition is live or finished
   const shouldHideCta =
@@ -187,7 +176,6 @@ const EasterCompetition = () => {
               userCanClaimPrizes={userCanClaimPrizes}
               finishedAndPrizesClaimed={finishedAndPrizesClaimed}
               finishedAndNothingToClaim={finishedAndNothingToClaim}
-              profile={profile}
               isLoading={isLoading}
               onRegisterSuccess={onRegisterSuccess}
               onClaimSuccess={onClaimSuccess}
@@ -205,7 +193,6 @@ const EasterCompetition = () => {
               hasRegistered={userTradingInformation.hasRegistered}
               userTradingInformation={userTradingInformation}
               account={account}
-              profile={profile}
               isLoading={isLoading}
               userLeaderboardInformation={userLeaderboardInformation}
               userCanClaimPrizes={userCanClaimPrizes}
@@ -216,13 +203,6 @@ const EasterCompetition = () => {
           )}
         </Box>
       </PageSection>
-      <TeamRanksSection
-        image={EasterCakerBunny}
-        team1LeaderboardInformation={team1LeaderboardInformation}
-        team2LeaderboardInformation={team2LeaderboardInformation}
-        team3LeaderboardInformation={team3LeaderboardInformation}
-        globalLeaderboardInformation={globalLeaderboardInformation}
-      />
       <PrizesInfoSection prizesInfoComponent={<EasterPrizesInfo />} />
       <Footer
         shouldHideCta={shouldHideCta}
@@ -235,7 +215,6 @@ const EasterCompetition = () => {
         userCanClaimPrizes={userCanClaimPrizes}
         finishedAndPrizesClaimed={finishedAndPrizesClaimed}
         finishedAndNothingToClaim={finishedAndNothingToClaim}
-        profile={profile}
         isLoading={isLoading}
         onRegisterSuccess={onRegisterSuccess}
         onClaimSuccess={onClaimSuccess}

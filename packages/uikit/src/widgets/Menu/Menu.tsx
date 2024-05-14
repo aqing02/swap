@@ -16,6 +16,8 @@ import Logo from "./components/Logo";
 import { MENU_HEIGHT, MOBILE_MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_MOBILE } from "./config";
 import { MenuContext } from "./context";
 import { NavProps } from "./types";
+import Container from '../../components/Layouts/Container'
+import { backgroundColor } from 'styled-system'
 
 const Wrapper = styled.div`
   position: relative;
@@ -133,11 +135,12 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
 
   return (
     <MenuContext.Provider value={{ linkComponent }}>
+
       <AtomBox
         asChild
         minHeight={{
-          xs: "auto",
-          md: "100vh",
+          xs: 'auto',
+          md: '100vh',
         }}
       >
         <Wrapper>
@@ -145,13 +148,13 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
             {banner && isMounted && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>}
             <StyledNav>
               <Flex>
-                <Logo href={homeLink?.href ?? "/"} />
-                <AtomBox display={{ xs: "none", md: "block" }}>
+                <Logo href={homeLink?.href ?? '/'} />
+                <AtomBox display={{ xs: 'none', md: 'block' }}>
                   <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />
                 </AtomBox>
               </Flex>
               <Flex alignItems="center" height="100%">
-                <AtomBox mr="12px" display={{ xs: "none", lg: "block" }}>
+                <AtomBox mr="12px" display={{ xs: 'none', lg: 'block' }}>
                   <CakePrice showSkeleton={false} cakePriceUsd={cakePriceUsd} />
                 </AtomBox>
                 <Box mt="4px">
@@ -188,28 +191,16 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
           ) : (
             <div />
           )}
-          <BodyWrapper mt={!subLinks ? `${totalTopMenuHeight + 1}px` : "0"}>
+          <BodyWrapper mt={!subLinks ? `${totalTopMenuHeight + 1}px` : '0'}>
             <Inner>{children}</Inner>
           </BodyWrapper>
         </Wrapper>
       </AtomBox>
-      <Footer
-        items={footerLinks}
-        isDark={isDark}
-        toggleTheme={toggleTheme}
-        langs={langs}
-        setLang={setLang}
-        currentLang={currentLang}
-        cakePriceUsd={cakePriceUsd}
-        buyCakeLabel={buyCakeLabel}
-        buyCakeLink={buyCakeLink}
-        mb={[`${MOBILE_MENU_HEIGHT}px`, null, "0px"]}
-      />
-      <AtomBox display={{ xs: "block", md: "none" }}>
+      <AtomBox display={{ xs: 'block', md: 'none' }}>
         <BottomNav items={links} activeItem={activeItem} activeSubItem={activeSubItem} />
       </AtomBox>
-    </MenuContext.Provider>
-  );
+</MenuContext.Provider>
+)
 };
 
-export default Menu;
+export default Menu

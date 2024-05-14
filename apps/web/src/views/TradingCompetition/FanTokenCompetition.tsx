@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useProfile } from 'state/profile/hooks'
 import { Box, useMatchBreakpoints } from '@pancakeswap/uikit'
 import { useTradingCompetitionContractFanToken } from 'hooks/useContract'
 import useTheme from 'hooks/useTheme'
@@ -30,13 +29,11 @@ import FanTokenCakerBunny from './pngs/fan-token-cakers.png'
 import { useTeamInformation } from './useTeamInformation'
 import { useRegistrationClaimStatus } from './useRegistrationClaimStatus'
 import Footer from './Footer'
-import TeamRanksSection from './components/TeamRanksSection'
 import PrizesInfoSection from './components/PrizesInfoSection'
 
 const FanTokenCompetition = () => {
   const { account, chainId } = useActiveWeb3React()
   const { isMobile } = useMatchBreakpoints()
-  const { profile, isLoading: isProfileLoading } = useProfile()
   const { isDark } = useTheme()
   const tradingCompetitionContract = useTradingCompetitionContractFanToken(false)
   const [currentPhase, setCurrentPhase] = useState(CompetitionPhases.OVER)
@@ -156,7 +153,7 @@ const FanTokenCompetition = () => {
     }
   }, [account, userTradingInformation])
 
-  const isLoading = isProfileLoading || userTradingInformation.isLoading
+  const isLoading = userTradingInformation.isLoading
 
   // Don't hide when loading. Hide if the account is connected && the user hasn't registered && the competition is live or finished
   const shouldHideCta =
@@ -199,7 +196,6 @@ const FanTokenCompetition = () => {
                 userCanClaimPrizes={userCanClaimPrizes}
                 finishedAndPrizesClaimed={finishedAndPrizesClaimed}
                 finishedAndNothingToClaim={finishedAndNothingToClaim}
-                profile={profile}
                 isLoading={isLoading}
                 onRegisterSuccess={onRegisterSuccess}
                 onClaimSuccess={onClaimSuccess}
@@ -217,7 +213,6 @@ const FanTokenCompetition = () => {
                 hasRegistered={userTradingInformation.hasRegistered}
                 userTradingInformation={userTradingInformation}
                 account={account}
-                profile={profile}
                 isLoading={isLoading}
                 userLeaderboardInformation={userLeaderboardInformation}
                 userCanClaimPrizes={userCanClaimPrizes}
@@ -228,13 +223,6 @@ const FanTokenCompetition = () => {
             )}
           </Box>
         </PageSection>
-        <TeamRanksSection
-          image={FanTokenCakerBunny}
-          team1LeaderboardInformation={team1LeaderboardInformation}
-          team2LeaderboardInformation={team2LeaderboardInformation}
-          team3LeaderboardInformation={team3LeaderboardInformation}
-          globalLeaderboardInformation={globalLeaderboardInformation}
-        />
         <PrizesInfoSection prizesInfoComponent={<FanTokenPrizesInfo />} />
         <Footer
           shouldHideCta={shouldHideCta}
@@ -247,7 +235,6 @@ const FanTokenCompetition = () => {
           userCanClaimPrizes={userCanClaimPrizes}
           finishedAndPrizesClaimed={finishedAndPrizesClaimed}
           finishedAndNothingToClaim={finishedAndNothingToClaim}
-          profile={profile}
           isLoading={isLoading}
           onRegisterSuccess={onRegisterSuccess}
           onClaimSuccess={onClaimSuccess}

@@ -24,17 +24,8 @@ export const config = {
   matcher: [
     '/',
     '/swap',
-    '/pool',
-    '/pools',
-    '/farms',
     '/add',
-    '/ifo',
     '/remove',
-    '/prediction',
-    '/find',
-    '/limit-orders',
-    '/lottery',
-    '/nfts',
-    '/info/:path*',
+    '/find'
   ],
 }

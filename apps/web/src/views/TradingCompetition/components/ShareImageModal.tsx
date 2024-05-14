@@ -47,8 +47,7 @@ const ShareImageModal: React.FC<React.PropsWithChildren<ShareImageModalProps>> =
   const { t } = useTranslation()
   const { global, team, volume } = userLeaderboardInformation
   const [bgImage, setBgImage] = useState(null)
-  const [profileImage, setProfileImage] = useState(null)
-  // const [profileOverlayImage, setProfileOverlayImage] = useState(null)
+  const [profileImage] = useState(null)
   const [medalImage, setMedalImage] = useState(null)
 
   const [imageFromCanvas, setImageFromCanvas] = useState(null)
@@ -76,11 +75,6 @@ const ShareImageModal: React.FC<React.PropsWithChildren<ShareImageModalProps>> =
       const bgImagEl = new Image()
       bgImagEl.src = bgImages[profile.teamId - 1]
       bgImagEl.onload = () => setBgImage(bgImagEl)
-
-      const profileImageEl = new Image()
-      profileImageEl.src = `${profile.nft?.image?.thumbnail}?d=${new Date().getTime()}`
-      profileImageEl.crossOrigin = 'Anonymous'
-      profileImageEl.onload = () => setProfileImage(profileImageEl)
 
       // const profileImageOverlayEl = new Image()
       // profileImageOverlayEl.src = ProfileMask.src

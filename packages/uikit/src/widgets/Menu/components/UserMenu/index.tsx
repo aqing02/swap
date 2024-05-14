@@ -25,7 +25,7 @@ export const StyledUserMenu = styled(Flex)`
 `;
 
 export const LabelText = styled.div`
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.textDisabled};
   display: none;
   font-weight: 600;
 
@@ -121,7 +121,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
       >
         <MenuIcon className={avatarClassName} avatarSrc={avatarSrc} variant={variant} />
         <LabelText title={typeof text === "string" ? text || account : account}>{text || accountEllipsis}</LabelText>
-        {!disabled && <ChevronDownIcon color="text" width="24px" />}
+        {!disabled && <ChevronDownIcon color="textDisabled" width="24px" />}
       </StyledUserMenu>
       {!disabled && (
         <Menu style={styles.popper} ref={setTooltipRef} {...attributes.popper} isOpen={isOpen}>

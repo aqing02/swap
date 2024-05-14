@@ -4,7 +4,6 @@ import { switchButtonClass, iconDownClass, iconUpDownClass } from "./SwapWidget.
 import { CurrencyInputPanel } from "./CurrencyInputPanel";
 import { CurrencyInputHeader, CurrencyInputHeaderSubTitle, CurrencyInputHeaderTitle } from "./CurrencyInputHeader";
 import { SwapPage } from "./Page";
-import { SwapFooter } from "./Footer";
 import { SwapInfo, SwapInfoLabel } from "./SwapInfo";
 import { TradePrice } from "./TradePrice";
 
@@ -22,7 +21,6 @@ const Swap = {
   CurrencyInputHeader,
   CurrencyInputPanel,
   Page: SwapPage,
-  Footer: SwapFooter,
   Info: SwapInfo,
   InfoLabel: SwapInfoLabel,
   TradePrice,

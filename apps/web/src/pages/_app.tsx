@@ -2,59 +2,31 @@ import '@pancakeswap/ui/css/reset.css'
 import { ResetCSS, ScrollToTopButtonV2, ToastListener } from '@pancakeswap/uikit'
 import BigNumber from 'bignumber.js'
 import GlobalCheckClaimStatus from 'components/GlobalCheckClaimStatus'
-import { NetworkModal } from 'components/NetworkModal'
-import { FixedSubgraphHealthIndicator } from 'components/SubgraphHealthIndicator/FixedSubgraphHealthIndicator'
-import TransactionsDetailModal from 'components/TransactionDetailModal'
-import { useAccountEventListener } from 'hooks/useAccountEventListener'
-import useEagerConnect from 'hooks/useEagerConnect'
-import useEagerConnectMP from 'hooks/useEagerConnect.bmp'
-import useLockedEndNotification from 'hooks/useLockedEndNotification'
-import useSentryUser from 'hooks/useSentryUser'
-import useThemeCookie from 'hooks/useThemeCookie'
-import useUserAgent from 'hooks/useUserAgent'
+import PublicFooter from 'components/PublicFooter'
+// import { NetworkModal } from 'components/NetworkModal'
+// import { NetworkModal } from 'components/NetworkModal'
+// import { FixedSubgraphHealthIndicator } from 'components/SubgraphHealthIndicator/FixedSubgraphHealthIndicator'
+// import TransactionsDetailModal from 'components/TransactionDetailModal'
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import Script from 'next/script'
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistor, useStore } from 'state'
-import { usePollBlockNumber } from 'state/block/hooks'
 import { Blocklist, Updaters } from '..'
 import { SentryErrorBoundary } from '../components/ErrorBoundary'
 import Menu from '../components/Menu'
 import Providers from '../Providers'
 import GlobalStyle from '../style/Global'
 
-const EasterEgg = dynamic(() => import('components/EasterEgg'), { ssr: false })
+// const EasterEgg = dynamic(() => import('components/EasterEgg'), { ssr: false })
 
 // This config is required for number formatting
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
   DECIMAL_PLACES: 80,
 })
-
-function GlobalHooks() {
-  usePollBlockNumber()
-  useEagerConnect()
-  useUserAgent()
-  useAccountEventListener()
-  useSentryUser()
-  useThemeCookie()
-  useLockedEndNotification()
-  return null
-}
-
-function MPGlobalHooks() {
-  usePollBlockNumber()
-  useEagerConnectMP()
-  useUserAgent()
-  useAccountEventListener()
-  useSentryUser()
-  useLockedEndNotification()
-  return null
-}
 
 function MyApp(props: AppProps<{ initialReduxState: any }>) {
   const { pageProps, Component } = props
@@ -69,26 +41,20 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover TurtSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE."
+          content="Cheaper and faster than Uniswap? Discover BomeSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE."
         />
         <meta name="theme-color" content="#1FC7D4" />
-        <meta name="twitter:image" content="https://turtswap.biz/images/turtfly.jpg" />
+        <meta name="twitter:image" content="https://BomeSwap.biz/images/turtfly.jpg" />
         <meta
           name="twitter:description"
-          content="The most popular AMM on BSC! in TurtSwap."
+          content="The most popular AMM on BSC! in BomeSwap."
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="🥞 TurtSwap - A next evolution DeFi exchange on BNB Smart Chain (BSC)" />
-        <title>TurtSwap</title>
-        {(Component as NextPageWithLayout).mp && (
-          // eslint-disable-next-line @next/next/no-sync-scripts
-          <script src="https://public.bnbstatic.com/static/js/mp-webview-sdk/webview-v1.0.0.min.js" id="mp-webview" />
-        )}
+        <meta name="twitter:title" content="🥞 BomeSwap - A next evolution DeFi exchange on BNB Smart Chain (BSC)" />
+        <title>BomeSwap</title>
       </Head>
-
       <Providers store={store}>
         <Blocklist>
-          {(Component as NextPageWithLayout).mp ? <MPGlobalHooks /> : <GlobalHooks />}
           <ResetCSS />
           <GlobalStyle />
           <GlobalCheckClaimStatus excludeLocations={[]} />
@@ -98,19 +64,6 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
           </PersistGate>
         </Blocklist>
       </Providers>
-      <Script
-        strategy="afterInteractive"
-        id="google-tag"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer', '${process.env.NEXT_PUBLIC_GTAG}');
-          `,
-        }}
-      />
     </>
   )
 }
@@ -150,14 +103,15 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
       <ShowMenu>
         <Layout>
           <Component {...pageProps} />
+          {/* <PublicFooter /> */}
         </Layout>
       </ShowMenu>
-      <EasterEgg iterations={2} />
+      {/* <EasterEgg iterations={2} />
       <ToastListener />
       <FixedSubgraphHealthIndicator />
       <NetworkModal pageSupportedChains={Component.chains} />
       <TransactionsDetailModal />
-      {isShowScrollToTopButton && <ScrollToTopButtonV2 />}
+      {isShowScrollToTopButton && <ScrollToTopButtonV2 />} */}
     </ProductionErrorBoundary>
   )
 }

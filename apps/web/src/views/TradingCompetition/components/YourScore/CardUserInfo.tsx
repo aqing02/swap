@@ -10,7 +10,6 @@ import {
   MedalSilverIcon,
   MedalTealIcon,
   BlockIcon,
-  Button,
   useModal,
 } from '@pancakeswap/uikit'
 import styled from 'styled-components'
@@ -55,7 +54,6 @@ const CardUserInfo: React.FC<React.PropsWithChildren<CardUserInfoProps>> = ({
   currentPhase,
 }) => {
   const { t } = useTranslation()
-  const [onPresentShareModal] = useModal(shareModal, false)
   const { global, team, volume, next_rank: nextRank } = userLeaderboardInformation
   const { usernameWithVisibility } = useGetUsernameWithVisibility(profile)
   const shouldShowUserRanks = account && hasRegistered
@@ -169,11 +167,6 @@ const CardUserInfo: React.FC<React.PropsWithChildren<CardUserInfoProps>> = ({
       </Text>
       {shouldShowUserRanks && (
         <>
-          {profile?.nft && volume > 0 && (
-            <Button mt="12px" variant="secondary" scale="sm" onClick={onPresentShareModal}>
-              {t('Share Score')}
-            </Button>
-          )}
           <RanksWrapper>
             <Flex width="100%" flexDirection={['column', null, null, 'row']} mr={['8px', null, null, 0]}>
               {volume > 0 && (

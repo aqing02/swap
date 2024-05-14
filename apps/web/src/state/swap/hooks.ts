@@ -20,13 +20,11 @@ import { useAccount } from 'wagmi'
 import { AppState, useAppDispatch } from '../index'
 import { useUserSlippageTolerance } from '../user/hooks'
 import { useCurrencyBalances } from '../wallet/hooks'
-import { Field, replaceSwapState, updateDerivedPairData, updatePairData } from './actions'
-import fetchDerivedPriceData from './fetch/fetchDerivedPriceData'
+import { Field, replaceSwapState, updatePairData } from './actions'
 import fetchPairPriceData from './fetch/fetchPairPriceData'
 import { pairHasEnoughLiquidity } from './fetch/utils'
 import {
   normalizeChartData,
-  normalizeDerivedChartData,
   normalizeDerivedPairDataByActiveToken,
   normalizePairDataByActiveToken,
 } from './normalizers'
@@ -278,29 +276,6 @@ export const useFetchPairPrices = ({
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const fetchDerivedData = async () => {
-      console.info(
-        '[Price Chart]: Not possible to retrieve price data from single pool, trying to fetch derived prices',
-      )
-      try {
-        // Try to get at least derived data for chart
-        // This is used when there is no direct data for pool
-        // i.e. when multihops are necessary
-        const derivedData = await fetchDerivedPriceData(token0Address, token1Address, timeWindow)
-        if (derivedData) {
-          const normalizedDerivedData = normalizeDerivedChartData(derivedData)
-          dispatch(updateDerivedPairData({ pairData: normalizedDerivedData, pairId, timeWindow }))
-        } else {
-          dispatch(updateDerivedPairData({ pairData: [], pairId, timeWindow }))
-        }
-      } catch (error) {
-        console.error('Failed to fetch derived prices for chart', error)
-        dispatch(updateDerivedPairData({ pairData: [], pairId, timeWindow }))
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
     const fetchAndUpdatePairPrice = async () => {
       setIsLoading(true)
       const { data } = await fetchPairPriceData({ pairId, timeWindow })
@@ -345,11 +320,10 @@ export const useFetchPairPrices = ({
         } else {
           console.info(`[Price Chart]: Liquidity too low for ${pairId}`)
           dispatch(updatePairData({ pairData: [], pairId, timeWindow }))
-          fetchDerivedData()
+
         }
       } else {
         dispatch(updatePairData({ pairData: [], pairId, timeWindow }))
-        fetchDerivedData()
       }
     }
 

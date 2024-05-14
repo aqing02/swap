@@ -22,7 +22,6 @@ import useBUSDPrice from 'hooks/useBUSDPrice'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { useAccount } from 'wagmi'
 import { BIG_INT_ZERO } from 'config/constants/exchange'
-import { useGetRemovedTokenAmounts } from 'views/RemoveLiquidity/RemoveStableLiquidity/hooks/useStableDerivedBurnInfo'
 import useStableConfig, { StableConfigContext } from 'views/Swap/StableSwap/hooks/useStableConfig'
 
 import { useLPApr } from 'state/swap/useLPApr'
@@ -139,13 +138,6 @@ const withLPValuesFactory =
 const withLPValues = withLPValuesFactory({
   useLPValuesHook: useTokensDeposited,
   hookArgFn: ({ pair, userPoolBalance, totalPoolTokens }) => ({ pair, userPoolBalance, totalPoolTokens }),
-})
-
-const withStableLPValues = withLPValuesFactory({
-  useLPValuesHook: useGetRemovedTokenAmounts,
-  hookArgFn: ({ userPoolBalance }) => ({
-    lpAmount: userPoolBalance?.quotient?.toString(),
-  }),
 })
 
 function MinimalPositionCardView({
@@ -421,8 +413,6 @@ function FullPositionCard({
 
 export const MinimalPositionCard = withLPValues(MinimalPositionCardView)
 
-export const StableFullPositionCardContainer = withStableLPValues(FullPositionCard)
-
 export const StableFullPositionCard = (props) => {
   const { stableSwapConfig, ...config } = useStableConfig({
     tokenA: props.pair?.token0,
@@ -433,7 +423,7 @@ export const StableFullPositionCard = (props) => {
 
   return (
     <StableConfigContext.Provider value={{ stableSwapConfig, ...config }}>
-      <StableFullPositionCardContainer {...props} />
+      <h1>PositionCard</h1>
     </StableConfigContext.Provider>
   )
 }

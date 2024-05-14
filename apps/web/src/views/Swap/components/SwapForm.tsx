@@ -265,12 +265,6 @@ export default function SwapForm() {
             commonBasesType={CommonBasesType.SWAP_LIMITORDER}
           />
 
-          {isAccessTokenSupported && (
-            <Box>
-              <AccessRisk inputCurrency={currencies[Field.INPUT]} outputCurrency={currencies[Field.OUTPUT]} />
-            </Box>
-          )}
-
           {isExpertMode && recipient !== null && !showWrap ? (
             <>
               <AutoRow justify="space-between" style={{ padding: '0 1rem' }}>

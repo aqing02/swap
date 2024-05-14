@@ -6,7 +6,7 @@ const SwapPage = () => {
   return (
     <SwapFeaturesProvider>
       <Swap />
-    </SwapFeaturesProvider>
+     </SwapFeaturesProvider>
   )
 }
 

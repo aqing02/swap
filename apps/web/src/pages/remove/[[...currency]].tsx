@@ -3,8 +3,6 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { CHAIN_IDS } from 'utils/wagmi'
 import RemoveLiquidity from 'views/RemoveLiquidity'
-import RemoveStableLiquidity from 'views/RemoveLiquidity/RemoveStableLiquidity'
-import useStableConfig, { StableConfigContext } from 'views/Swap/StableSwap/hooks/useStableConfig'
 
 const RemoveLiquidityPage = () => {
   const router = useRouter()
@@ -13,11 +11,6 @@ const RemoveLiquidityPage = () => {
 
   const [currencyA, currencyB] = [useCurrency(currencyIdA) ?? undefined, useCurrency(currencyIdB) ?? undefined]
 
-  const { stableSwapConfig, ...config } = useStableConfig({
-    tokenA: currencyA,
-    tokenB: currencyB,
-  })
-
   const props = {
     currencyIdA,
     currencyIdB,
@@ -25,13 +18,7 @@ const RemoveLiquidityPage = () => {
     currencyB,
   }
 
-  return stableSwapConfig && router.query.stable === '1' ? (
-    <StableConfigContext.Provider value={{ stableSwapConfig, ...config }}>
-      <RemoveStableLiquidity {...props} />
-    </StableConfigContext.Provider>
-  ) : (
-    <RemoveLiquidity {...props} />
-  )
+  return <RemoveLiquidity {...props} />
 }
 
 RemoveLiquidityPage.chains = CHAIN_IDS

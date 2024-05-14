@@ -12,7 +12,7 @@ export abstract class BaseCurrency {
   public abstract readonly isNative: boolean
 
   /**
-   * Returns whether the currency is a token that is usable in TurtSwap without wrapping
+   * Returns whether the currency is a token that is usable in BomeSwap without wrapping
    */
   public abstract readonly isToken: boolean
 
@@ -60,8 +60,8 @@ export abstract class BaseCurrency {
   public abstract equals(other: Currency): boolean
 
   /**
-   * Return the wrapped version of this currency that can be used with the TurtSwap contracts. Currencies must
-   * implement this to be used in TurtSwap
+   * Return the wrapped version of this currency that can be used with the BomeSwap contracts. Currencies must
+   * implement this to be used in BomeSwap
    */
   public abstract get wrapped(): Token
 }

@@ -8,7 +8,6 @@ import { WrappedTokenInfo } from '@pancakeswap/token-lists'
 
 import { useBUSDCurrencyAmount } from 'hooks/useBUSDPrice'
 import { formatNumber } from '@pancakeswap/utils/formatBalance'
-import { StablePair } from 'views/AddLiquidity/AddStableLiquidity/hooks/useStableLPDerivedMintInfo'
 
 import { useAccount } from 'wagmi'
 import { useCurrencyBalance } from '../../state/wallet/hooks'
@@ -87,7 +86,7 @@ interface CurrencyInputPanelProps {
   currency?: Currency | null
   disableCurrencySelect?: boolean
   hideBalance?: boolean
-  pair?: Pair | StablePair | null
+  pair?: Pair  | null
   otherCurrency?: Currency | null
   id: string
   showCommonBases?: boolean

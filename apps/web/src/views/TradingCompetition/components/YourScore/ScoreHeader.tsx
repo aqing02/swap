@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { NoProfileAvatarIcon, LaurelLeftIcon, LaurelRightIcon, Skeleton } from '@pancakeswap/uikit'
-import ProfileAvatarWithTeam from 'components/ProfileAvatarWithTeam'
 import { YourScoreProps } from '../../types'
 import Sticker from '../Sticker'
 
@@ -43,7 +42,7 @@ const ScoreHeader: React.FC<React.PropsWithChildren<YourScoreProps>> = ({ profil
         <Skeleton height="96px" width="96px" variant="circle" />
       ) : (
         <ProfileWrapper>
-          <Sticker>{profile ? <ProfileAvatarWithTeam profile={profile} /> : <StyledNoProfileAvatarIcon />}</Sticker>
+          <Sticker><StyledNoProfileAvatarIcon /></Sticker>
         </ProfileWrapper>
       )}
 

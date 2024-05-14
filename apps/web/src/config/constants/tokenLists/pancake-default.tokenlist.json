@@ -1,5 +1,5 @@
 {
-  "name": "TurtSwap Default List",
+  "name": "BomeSwap Default List",
   "timestamp": "2022-01-26T11:45:09Z",
   "version": {
     "major": 4,
@@ -28,12 +28,12 @@
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/usdt.png"
     },
     {
-      "name": "TurtSwap Token",
+      "name": "BomeSwap Token",
       "symbol": "TURC",
       "address": "0xecc119f69736d088e74dbd485ed2f34f8227d508",
       "chainId": 56,
       "decimals": 18,
-      "logoURI": "https://turtswap.biz/images/turc.png"
+      "logoURI": "https://BomeSwap.biz/images/turc.png"
     },
     {
       "name": "Wrapped BNB",

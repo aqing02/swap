@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from '@pancakeswap/localization'
-import { useProfile } from 'state/profile/hooks'
 import { Flex, Box, useMatchBreakpoints } from '@pancakeswap/uikit'
 import Image from 'next/image'
 import { useTradingCompetitionContractMoD } from 'hooks/useContract'
@@ -40,14 +39,12 @@ import ModPrizesInfo from './mod/components/PrizesInfo/ModPrizesInfo'
 import ModYourScore from './mod/components/YourScore/ModYourScore'
 import { useTeamInformation } from './useTeamInformation'
 import { useRegistrationClaimStatus } from './useRegistrationClaimStatus'
-import TeamRanksWithParticipants from './components/TeamRanks/TeamRanksWithParticipants'
 import MoDCakerBunny from './pngs/MoD-caker.png'
 import PrizesInfoSection from './components/PrizesInfoSection'
 
 const MoDCompetition = () => {
   const { account, chainId } = useActiveWeb3React()
   const { t } = useTranslation()
-  const { profile, isLoading: isProfileLoading } = useProfile()
   const { isMobile } = useMatchBreakpoints()
   const { isDark, theme } = useTheme()
   const tradingCompetitionContract = useTradingCompetitionContractMoD(false)
@@ -146,7 +143,7 @@ const MoDCompetition = () => {
     }
   }, [account, userTradingInformation])
 
-  const isLoading = isProfileLoading || userTradingInformation.isLoading
+  const isLoading = true
   // Don't hide when loading. Hide if the account is connected && the user hasn't registered && the competition is live or finished
   const shouldHideCta =
     !isLoading &&
@@ -189,7 +186,6 @@ const MoDCompetition = () => {
                 userCanClaimPrizes={userCanClaimPrizes}
                 finishedAndPrizesClaimed={finishedAndPrizesClaimed}
                 finishedAndNothingToClaim={finishedAndNothingToClaim}
-                profile={profile}
                 isLoading={isLoading}
                 onRegisterSuccess={onRegisterSuccess}
                 onClaimSuccess={onClaimSuccess}
@@ -208,7 +204,6 @@ const MoDCompetition = () => {
                 hasRegistered={userTradingInformation.hasRegistered}
                 userTradingInformation={userTradingInformation}
                 account={account}
-                profile={profile}
                 isLoading={isLoading}
                 userLeaderboardInformation={userLeaderboardInformation}
                 userCanClaimPrizes={userCanClaimPrizes}
@@ -219,32 +214,6 @@ const MoDCompetition = () => {
             )}
           </Box>
         </PageSection>
-        {currentPhase.state !== REGISTRATION && (
-          <PageSection
-            containerProps={{ style: { marginTop: '-20px' } }}
-            index={3}
-            concaveDivider
-            clipFill={{ light: theme.colors.background }}
-            dividerPosition="top"
-            dividerComponent={
-              <RibbonWithImage imageComponent={<RanksIcon width="175px" />} ribbonDirection="up">
-                {t('Team Ranks')}
-              </RibbonWithImage>
-            }
-          >
-            <Box my="64px">
-              <TeamRanksWithParticipants
-                image={MoDCakerBunny}
-                team1LeaderboardInformation={team1LeaderboardInformation}
-                team2LeaderboardInformation={team2LeaderboardInformation}
-                team3LeaderboardInformation={team3LeaderboardInformation}
-                globalLeaderboardInformation={globalLeaderboardInformation}
-                participantSubgraphAddress={TC_MOD_SUBGRAPH}
-                subgraphName="pancakeswap/trading-competition-v4"
-              />
-            </Box>
-          </PageSection>
-        )}
         <PrizesInfoSection prizesInfoComponent={<ModPrizesInfo />} />
         <PageSection
           containerProps={{ style: { marginTop: '-1px' } }}
@@ -286,7 +255,6 @@ const MoDCompetition = () => {
                   userCanClaimPrizes={userCanClaimPrizes}
                   finishedAndPrizesClaimed={finishedAndPrizesClaimed}
                   finishedAndNothingToClaim={finishedAndNothingToClaim}
-                  profile={profile}
                   isLoading={isLoading}
                   onRegisterSuccess={onRegisterSuccess}
                   onClaimSuccess={onClaimSuccess}

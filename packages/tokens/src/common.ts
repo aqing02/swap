@@ -5,8 +5,8 @@ export const CAKE_MAINNET = new ERC20Token(
   '0xecc119f69736d088e74dbd485ed2f34f8227d508',
   18,
   'TURC',
-  'TurtSwap Token',
-  'https://turtswap.biz',
+  'BomeSwap Token',
+  'https://BomeSwap.biz',
 )
 
 export const CAKE_TESTNET = new ERC20Token(
@@ -14,8 +14,8 @@ export const CAKE_TESTNET = new ERC20Token(
   '0xecc119f69736d088e74dbd485ed2f34f8227d508',
   18,
   'TURC',
-  'TurtSwap Token',
-  'https://turtswap.biz',
+  'BomeSwap Token',
+  'https://BomeSwap.biz',
 )
 
 export const USDC_BSC = new ERC20Token(

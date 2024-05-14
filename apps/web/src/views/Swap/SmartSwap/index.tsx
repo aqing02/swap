@@ -301,12 +301,6 @@ export function SmartSwapForm() {
             commonBasesType={CommonBasesType.SWAP_LIMITORDER}
           />
 
-          {isAccessTokenSupported && (
-            <Box>
-              <AccessRisk inputCurrency={currencies[Field.INPUT]} outputCurrency={currencies[Field.OUTPUT]} />
-            </Box>
-          )}
-
           {isSmartRouterBetter && !isStableSwapByDefault && (
             <AutoColumn>
               {allowUseSmartRouter && (
